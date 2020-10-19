@@ -11,5 +11,8 @@ print(price)
 
 #another way to find the link of html
 divs = soup.select('span#prcIsum')
-print(divs)
+print(divs[0])
 
+#saving the webpage to a text file
+file1 = open("scrapper.txt", "w")
+file1.write(soup.prettify())
