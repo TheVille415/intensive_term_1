@@ -5,4 +5,5 @@ r = requests.get("https://www.ebay.com/itm/Kirkland-Signature-High-Performance-3
 
 soup = bs(r.content)
 
-print(soup)
+price = soup.select(".notranslate")
+print(price)
