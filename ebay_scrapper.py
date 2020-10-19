@@ -5,14 +5,13 @@ r = requests.get("https://www.ebay.com/itm/Kirkland-Signature-High-Performance-3
 #content of the website in HTML
 soup = bs(r.content)
 
-#selects line of html 
-price = soup.select(".notranslate")
-print(price)
-
 #another way to find the link of html
-divs = soup.select('span#prcIsum')
-print(divs[0])
+price_line = soup.select('span#prcIsum.notranslate')
+print(price_line[0])
 
 #saving the webpage to a text file
-file1 = open("scrapper.txt", "w")
+file1 = open("/Users/Jordan/dev/Make School Courses/Intensive/Term 1/scrapper.txt", "w")
 file1.write(soup.prettify())
+#saving the line of html to the end of the file
+file1.write(str(price_line))
+file1.close()
